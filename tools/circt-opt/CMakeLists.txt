@@ -1,0 +1,46 @@
+set(LLVM_LINK_COMPONENTS
+  Support
+  )
+
+add_llvm_tool(circt-opt
+ circt-opt.cpp
+)
+llvm_update_compile_flags(circt-opt)
+target_link_libraries(circt-opt
+  PRIVATE
+  CIRCTCalyx
+  CIRCTCalyxToHW
+  CIRCTCalyxTransforms
+  CIRCTESI
+  CIRCTFIRRTL
+  CIRCTFIRRTLToHW
+  CIRCTFIRRTLTransforms
+  CIRCTFSM
+  CIRCTHandshake
+  CIRCTHandshakeToFIRRTL
+  CIRCTLLHD
+  CIRCTLLHDToLLVM
+  CIRCTLLHDTransforms
+  CIRCTMSFT
+  CIRCTHW
+  CIRCTHWToLLHD
+  CIRCTScheduling
+  CIRCTSchedulingTestPasses
+  CIRCTSeq
+  CIRCTStandardToHandshake
+  CIRCTStandardToStaticLogic
+  CIRCTStaticLogicOps
+  CIRCTSV
+  CIRCTSVTransforms
+
+  CIRCTDummy
+
+  MLIRIR
+  MLIRLLVMIR
+  MLIRMemRef
+  MLIROptLib
+  MLIRParser
+  MLIRStandard
+  MLIRSupport
+  MLIRTransforms
+  )
